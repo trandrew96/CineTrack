@@ -16,13 +16,11 @@ import Account from "./components/Account";
 import FilmPage from "./components/FilmPage";
 
 // LISTEN TO MULTIPLE DOCS IN A COLLECTION
-import { db } from "./config/firebase.config";
-import { collection, query, onSnapshot } from "firebase/firestore";
 import SaveMenu from "./components/SaveMenu";
 
 function Layout() {
   return (
-    <div className="min-h-screen relative flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
       <SaveMenu />
       <Nav />
       <div className="mt-2 md:mt-4 lg:mt-8 px-4">
@@ -35,7 +33,6 @@ function Layout() {
 
 function App() {
   const [user, setUser] = useState(undefined);
-  const [watchlist, setWatchlist] = useState(undefined);
   // Save-movie-to-list variables
   const [saveMenuVisiblity, setSaveMenuVisibility] = useState(false);
   const [movie, setMovie] = useState(undefined);
