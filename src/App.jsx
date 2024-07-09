@@ -54,16 +54,6 @@ function App() {
         };
 
         setUser(userInfo);
-
-        // const q = query(collection(db, "lists", user.uid, "watchlist"));
-        // const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        //   const films = [];
-        //   querySnapshot.forEach((doc) => {
-        //     films.push(doc.id);
-        //   });
-        //   setWatchlist(films);
-        //   // console.log("Current Watchlist: ", films.join(", "));
-        // });
       } else {
         // User is signed out
         setUser(null);
