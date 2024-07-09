@@ -1,8 +1,13 @@
-# React + Vite
+# CineTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Your Ultimate Movie and TV Show Companion
+At CineTrack, we understand that keeping track of all the movies and TV shows you want to watch can be overwhelming. That's why we've created a platform that makes it easy to discover, organize, and enjoy your favorite content.
 
-Currently, two official plugins are available:
+### Tech Stack
+Frontend:
+   - React
+   - Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Backend:
+   - Firebase (firestore, auth, functions)
+   - TMDB API
