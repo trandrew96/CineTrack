@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #111419;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+
+
+/* width */
+.now-playing-carousel::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
+ 
+/* Track */
+.now-playing-carousel::-webkit-scrollbar-track {
+  /* background: #777; */
+}
+ 
+/* Handle */
+.now-playing-carousel::-webkit-scrollbar-thumb {
+    background: #888;
+    /* border-radius: 5px; */
+}
+ 
+/* Handle on hover */
+.now-playing-carousel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
