@@ -44,7 +44,7 @@ const Login = () => {
 
       // setUser(user);
 
-      navigate("/notes");
+      navigate("/");
     } catch (error) {
       console.log("Error: we could not sign you up with Firebase");
 
