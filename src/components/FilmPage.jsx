@@ -184,6 +184,10 @@ function FilmPage() {
           <section className="col-span-4 mt-6">
             <p className="mb-14">{film.overview}</p>
 
+            <div className="md:hidden">
+              <Score score={film.vote_average} />
+            </div>
+
             <div className="md:hidden mb-14">
               <WatchProviders providers={film?.watch_providers_ca} />
             </div>
