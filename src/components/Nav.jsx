@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import SearchIcon from "./icons/SearchIcon";
 import MenuIcon from "./icons/MenuIcon";
 import Close from "./icons/Close";
+import Reel from "./icons/Reel";
 
 export default function Nav() {
   const { user } = useContext(UserContext);
@@ -24,7 +25,8 @@ export default function Nav() {
       {/* DESKTOP NAV */}
       <nav className="sm:flex gap-10 items-center py-2 px-4 max-w-screen-lg w-full mx-auto z-50 nav-gradient font-bold">
         <div className="sm:mr-auto flex">
-          <Link to="/" className="text-lg">
+          <Link to="/" className="text-lg flex">
+            <Reel />
             CineTrack
           </Link>
 
