@@ -13,6 +13,8 @@ function Score({ score }) {
       bgColor = "bg-green-500";
   }
 
+  if (score == 0) return;
+
   return (
     <div className="text-center">
       <h3 className="mb-2">Score</h3>

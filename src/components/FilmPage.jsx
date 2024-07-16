@@ -27,6 +27,9 @@ function FilmPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [tooltipText, setTooltipText] = useState("Copy to clipboard");
+  const [mobileTooltipText, setMobileTooltipText] = useState("Share");
 
   const location = useLocation();
 
@@ -87,6 +90,11 @@ function FilmPage() {
 
     getWatchlist();
   }, [user]);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setTooltipText(`Copied to clipboard`);
+  };
 
   if (isLoading) return <FilmPageSkeleton />;
 
@@ -241,12 +249,27 @@ function FilmPage() {
               {user && <ToggleSaveMenu movie={film} className={"py-2"} />}
 
               {!user && (
-                <div>
+                <div className={"py-2"}>
                   <Link to="/login">Sign in to save movies</Link>
                 </div>
               )}
-              <div className="py-2">
-                <span>Share</span>
+              <div className="py-2 tooltip">
+                <button
+                  onClick={copyToClipboard}
+                  onMouseEnter={() => setTooltipVisible(true)}
+                  onMouseLeave={() => {
+                    setTooltipVisible(false);
+                    setTooltipText("Copy to clipboard");
+                  }}
+                >
+                  Share
+                </button>
+                <span
+                  className={`tooltiptext transition-opacity`}
+                  id="myTooltip"
+                >
+                  {tooltipText}
+                </span>
               </div>
             </div>
 
@@ -279,7 +302,9 @@ function FilmPage() {
           ></div>
           <div className="flex flex-col divide-y divide-slate-800 h-fit bg-slate-700 text-center mt-auto fixed bottom-0 left-0 w-full">
             <div className="text-left px-4 py-2">
-              <h4 className="text-md">{film.original_title}</h4>
+              <h4 className="text-md text-xl font-semibold">
+                {film.original_title}
+              </h4>
               <span className="text-sm text-slate-300">
                 {film.release_date.slice(0, 4)}
               </span>
@@ -313,12 +338,19 @@ function FilmPage() {
               )}
             {user && <ToggleSaveMenu movie={film} className={"py-2"} />}
             {!user && (
-              <div>
+              <div className="py-2 text-md font-semibold">
                 <Link to="/login">Sign in to save movies</Link>
               </div>
             )}
-            <div className="py-2">
-              <span>Share</span>
+            <div className="py-2 text-md font-semibold">
+              <button
+                onClick={() => {
+                  copyToClipboard();
+                  setMobileTooltipText("Copied to clipboard");
+                }}
+              >
+                {mobileTooltipText}
+              </button>
             </div>
           </div>
         </>
