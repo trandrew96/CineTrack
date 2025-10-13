@@ -10,9 +10,9 @@ function Hero({ img, text }) {
         className="hero max-w-screen-lg mt-10 sm:mt-0 h-52 md:h-64 lg:h-96 w-full bg-[center_top_-.5rem] bg-cover bg-no-repeat mx-auto md:mb-8 absolute inset-0"
         style={{ backgroundImage: `url('${img}')` }}
       >
-        <div className="hero-gradient h-full">
+        <div className="hero-gradient h-full flex flex-col justify-center">
           {text && (
-            <h1 className="text-lg md:text-2xl lg:text-4xl text-center absolute bottom-20 w-full">
+            <h1 className="text-lg md:text-2xl lg:text-4xl text-center w-full">
               {text}
             </h1>
           )}

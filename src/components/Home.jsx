@@ -15,13 +15,18 @@ function Home() {
   const [popular, setPopular] = useState(null);
   const [upcoming, setUpcoming] = useState(null);
   const [loading, setIsLoading] = useState(true);
+  const [heroPath, setHeroPath] = useState("/hero.jpg");
 
   useEffect(() => {
     setIsLoading(true);
 
     axios.get(now_playing_api).then((res) => {
       setNowPlaying(res.data);
-      // console.log("now playing:", res.data);
+      let randomIndex = Math.floor(Math.random() * res.data.results.length);
+      setHeroPath(
+        "https://image.tmdb.org/t/p/w1280/" +
+          res.data.results[randomIndex].backdrop_path
+      );
     });
 
     axios.get(popular_api).then((res) => {
@@ -46,7 +51,8 @@ function Home() {
   return (
     <div className="">
       <main className="">
-        <Hero img={"/hero.jpg"} text={"Track films you want to see."} />
+        <Hero img={heroPath} text={"Track films you want to see."} />
+        {/* <Hero img={"/hero.jpg"} text={"Track films you want to see."} /> */}
 
         {/* NOW PLAYING */}
         <div className="max-w-screen-md mx-auto mt-12 mb-12">
